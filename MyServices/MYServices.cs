@@ -1,6 +1,4 @@
-﻿
-
-namespace e_commerce.MyServices
+﻿namespace e_commerce.MyServices
 {
     public static class MYServices
     {
@@ -9,7 +7,9 @@ namespace e_commerce.MyServices
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer("Server=.;Database=e_commerce;Trusted_Connection=True;TrustServerCertificate=True;"));
             
-            
+            services.AddIdentity<User, IdentityRole>().AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<DatabaseContext>()
+                .AddDefaultTokenProviders();
         }
     }
 }

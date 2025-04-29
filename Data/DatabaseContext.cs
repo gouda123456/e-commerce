@@ -188,12 +188,12 @@ public partial class DatabaseContext : IdentityDbContext<User>
         {
             entity.HasKey(e => e.Id).HasName("PK__Users__3214EC076955B873");
 
-            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+            
             entity.Property(e => e.IsActive).HasDefaultValue(true);
-            entity.Property(e => e.IsEmailConfirmed).HasDefaultValue(false);
-            entity.Property(e => e.Role).HasDefaultValue("User");
+            
+            
             entity.Property(e => e.TwoFactorEnabled).HasDefaultValue(false);
-            entity.Property(e => e.UpdatedAt).HasDefaultValueSql("(getdate())");
+           
         });
 
         OnModelCreatingPartial(modelBuilder);
