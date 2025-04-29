@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace e_commerce.Data;
 
-public partial class DatabaseContext : IdentityDbContext<User>
+public partial class DatabaseContext : IdentityDbContext<ApplicationUser,ApplicationRole,long>
 {
     public DatabaseContext()
     {
@@ -57,6 +57,9 @@ public partial class DatabaseContext : IdentityDbContext<User>
    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Ignore<IdentityUserLogin<string>>();
+
         modelBuilder.Entity<Address>(entity =>
         {
             entity.HasOne(d => d.Region).WithMany(p => p.Addresses)
@@ -184,7 +187,7 @@ public partial class DatabaseContext : IdentityDbContext<User>
                 .HasConstraintName("FK_StockMovements_Products");
         });
 
-        modelBuilder.Entity<User>(entity =>
+        modelBuilder.Entity<ApplicationUser>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Users__3214EC076955B873");
 

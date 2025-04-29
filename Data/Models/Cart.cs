@@ -33,5 +33,5 @@ public partial class Cart
 
     [ForeignKey("UserId")]
     [InverseProperty("Cart")]
-    public virtual User User { get; set; } = null!;
+    public virtual ApplicationUser User { get; set; } = null!;
 }

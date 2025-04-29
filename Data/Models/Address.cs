@@ -68,5 +68,5 @@ public partial class Address
 
     [ForeignKey("UserId")]
     [InverseProperty("Addresses")]
-    public virtual User User { get; set; } = null!;
+    public virtual ApplicationUser User { get; set; } = null!;
 }

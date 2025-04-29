@@ -33,5 +33,5 @@ public partial class Review
 
     [ForeignKey("UserId")]
     [InverseProperty("Reviews")]
-    public virtual User User { get; set; } = null!;
+    public virtual ApplicationUser User { get; set; } = null!;
 }

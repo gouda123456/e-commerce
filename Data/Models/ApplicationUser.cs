@@ -8,26 +8,13 @@ using Microsoft.EntityFrameworkCore;
 namespace e_commerce.Data.Models;
 
 [Index("Email", Name = "UQ__Users__A9D10534F8C2D09D", IsUnique = true)]
-public partial class User : IdentityUser
+public partial class ApplicationUser : IdentityUser<long>
 {
     
 
     [StringLength(150)]
     public string FullName { get; set; } = null!;
-
-    
-
-    
-
-    
-
-    
-
-    
-
     public bool? IsActive { get; set; }
-
-    
 
     //[Column(TypeName = "datetime")]
     //public DateTime? CreatedAt { get; set; }
@@ -37,10 +24,6 @@ public partial class User : IdentityUser
 
     //[Column(TypeName = "datetime")]
     //public DateTime? LastLoginDate { get; set; }
-
-    
-
-    
 
     //public long CreatedBy { get; set; }
 
