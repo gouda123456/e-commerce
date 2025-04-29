@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using e_commerce.Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace e_commerce.Data;
 
-public partial class DatabaseContext : DbContext
+public partial class DatabaseContext : IdentityDbContext<User>
 {
     public DatabaseContext()
     {
